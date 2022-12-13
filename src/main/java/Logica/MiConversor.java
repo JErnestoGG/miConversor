@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
 public class MiConversor {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       conversor();
     }
     
-    public static void miConversor(){
+    public static void conversor(){
         
         //Creando el menu principal del conversor
         String moneda = (JOptionPane.showInputDialog(null, "Selecciona el conversor que necesitas", "Mi Conversor",
@@ -92,7 +92,7 @@ public class MiConversor {
                 Temperatura conversionTemperatura=new Temperatura();
                 
                 String valorTemperatura=(JOptionPane.showInputDialog(null, "Introduce el valor que deseas convertir "
-                        ,"Conversor de medidas", JOptionPane.PLAIN_MESSAGE));
+                        ,"Conversor de Temperatura", JOptionPane.PLAIN_MESSAGE));
                  double valor2;
 
                 if (valorTemperatura.matches("^-?[0-9]+([\\.,][0-9]+)?$")){
@@ -107,8 +107,8 @@ public class MiConversor {
                 
                 
                 String cambioTemperatura = (JOptionPane.showInputDialog(null, "Selecciona una opción de conversión", "Mi conversor de Moneda",
-            JOptionPane.PLAIN_MESSAGE,null, new Object [] {"Selecciona", "Celsius a Fahrenheit", "Celsius a Kelvin","Fahrenheit a Celsius","Fahrenheit a Kelvin",
-            "Kelvin a Celsius", "Kelvin a Fahrenheit"}, "Selecciona")).toString();
+            JOptionPane.PLAIN_MESSAGE,null, new Object [] { "Celsius a Fahrenheit", "Celsius a Kelvin","Fahrenheit a Celsius","Fahrenheit a Kelvin",
+            "Kelvin a Celsius", "Kelvin a Fahrenheit"}, "Celsius a Fahrenheit")).toString();
        
              switch (cambioTemperatura){
                      case "Celsius a Fahrenheit" -> {        
@@ -147,6 +147,21 @@ public class MiConversor {
         
         finalizar();
 
+    }
+    
+       public static void finalizar(){
+                int resp =JOptionPane.showConfirmDialog(null, "¿Deseas continuar?",
+                "Mi Conversor", JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE); 
+        
+        if (resp==0){
+          conversor();
+        }else{
+            
+        JOptionPane.showConfirmDialog(null, "Programa Finalizado",
+                "Mi conversor", JOptionPane.CLOSED_OPTION,
+                JOptionPane.INFORMATION_MESSAGE);
+        }
     }
    
 }
